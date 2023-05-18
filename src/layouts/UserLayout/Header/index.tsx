@@ -3,6 +3,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { TbBrandMessenger } from "react-icons/tb";
 import store from "../../../lib/zustand";
+import Link from "next/link";
 
 const Header = () => {
   const { setOpenDrawer } = store.drawer();
@@ -22,15 +23,27 @@ const Header = () => {
           onClick={handleOpenSidebar}
         />
         <h1 className="text-2xl font-bold">Web rác</h1>
-        <div className="flex items-center gap-4">
-          <TbBrandMessenger size={28} />
-          <IoNotificationsOutline size={28} />
-          <Avatar
-            size="sm"
-            name="Nguyen Dinh Hien"
-            src="https://bit.ly/dan-abramov"
-          />
-        </div>
+        {false ? (
+          <div className="flex items-center gap-4">
+            <TbBrandMessenger size={28} />
+            <IoNotificationsOutline size={28} />
+            <Avatar
+              size="sm"
+              name="Nguyen Dinh Hien"
+              src="https://bit.ly/dan-abramov"
+            />
+          </div>
+        ) : (
+          <div>
+            <Link className="hover:text-white" href={"/register"}>
+              Đăng ký
+            </Link>
+            {` / `}
+            <Link className="hover:text-white" href={"/login"}>
+              Đăng nhập
+            </Link>
+          </div>
+        )}
       </Box>
     </Box>
   );
