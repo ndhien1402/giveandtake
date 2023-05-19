@@ -11,6 +11,8 @@ import {
   Box,
 } from "@chakra-ui/react";
 import store from "../../lib/zustand";
+import BackTop from "components/BackTop";
+
 const UserLayout = (props: { children: React.ReactNode }) => {
   const { openDrawer, setOpenDrawer } = store.drawer();
 
@@ -19,7 +21,7 @@ const UserLayout = (props: { children: React.ReactNode }) => {
   };
 
   return (
-    <>
+    <Box>
       <Header />
       <Drawer isOpen={openDrawer} onClose={onCloseDrawer} placement="left">
         <DrawerOverlay backgroundColor={"#fff"} opacity={"0.2 !important"} />
@@ -40,7 +42,8 @@ const UserLayout = (props: { children: React.ReactNode }) => {
         </Box>
         <Box className="w-full md:px-16">{props.children}</Box>
       </div>
-    </>
+      <BackTop />
+    </Box>
   );
 };
 
