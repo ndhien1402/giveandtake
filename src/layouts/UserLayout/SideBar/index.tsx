@@ -6,9 +6,9 @@ const SideBar = () => {
     <>
       <div className="mt-8"></div>
       <ul>
-        {menuItems.map((item) => {
+        {menuItems.map((item, index) => {
           return (
-            <li key={item.path}>
+            <li key={index}>
               <Link
                 href={item.path}
                 className="flex items-center hover:bg-gray-800 px-4 py-1"

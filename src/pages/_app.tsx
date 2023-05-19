@@ -22,7 +22,7 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
   Router.events.on("routeChangeComplete", NProgress.done);
   NProgress.configure({
     template:
-      '<div class="bar !bg-rose-500 !border-b-[3px] !border-rose-500" role="bar"><div class="peg !bg-rose-500"></div></div>',
+      '<div class="bar !bg-rose-500 !border-b-[2px] !border-rose-500" role="bar"><div class="peg !bg-rose-500"></div></div>',
     easing: "ease",
     speed: 300,
     minimum: 0.1,

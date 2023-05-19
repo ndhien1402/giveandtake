@@ -22,7 +22,9 @@ const Header = () => {
           boxSize={5}
           onClick={handleOpenSidebar}
         />
-        <h1 className="text-2xl font-bold">Web rác</h1>
+        <h1 className="!hidden md:!block text-[30px] font-bold ">
+          <Link href={"/"}>C&N</Link>
+        </h1>
         {false ? (
           <div className="flex items-center gap-4">
             <TbBrandMessenger size={28} />
