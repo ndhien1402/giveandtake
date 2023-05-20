@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { CalendarIcon } from "@chakra-ui/icons";
 import menuItems from "./data";
+import store from "lib/zustand";
 const SideBar = () => {
+  const { setOpenDrawer } = store.drawer();
+
   return (
     <>
       <div className="mt-8"></div>
-      <ul>
+      <ul onClick={() => setOpenDrawer(false)}>
         {menuItems.map((item, index) => {
           return (
             <li key={index}>

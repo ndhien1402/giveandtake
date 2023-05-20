@@ -34,12 +34,14 @@ const UserLayout = (props: { children: React.ReactNode }) => {
         </DrawerContent>
       </Drawer>
       <div className="flex">
-        <Box
-          className="w-[300px] min-w-[250px] hidden md:block h-[calc(100vh-56px)]"
-          borderRight={"1px"}
-          borderColor={"color.border"}
-        >
-          <SideBar />
+        <Box className="w-[300px] min-w-[250px] hidden md:block h-[calc(100vh-56px)]">
+          <Box
+            className="fixed min-w-[250px] h-[calc(100vh-56px)]"
+            borderRight={"1px"}
+            borderColor={"color.border"}
+          >
+            <SideBar />
+          </Box>
         </Box>
         <Box className="w-full md:px-16">
           <AnimatePresence mode="wait">

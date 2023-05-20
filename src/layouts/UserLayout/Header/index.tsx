@@ -2,7 +2,7 @@ import { Avatar, AvatarBadge, AvatarGroup, Box } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { IoNotificationsOutline } from "react-icons/io5";
 import { TbBrandMessenger } from "react-icons/tb";
-import store from "../../../lib/zustand";
+import store from "lib/zustand";
 import Link from "next/link";
 
 const Header = () => {
