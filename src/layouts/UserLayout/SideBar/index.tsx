@@ -8,7 +8,9 @@ const SideBar = () => {
   return (
     <>
       <div className="mt-8"></div>
-      <ul onClick={() => setOpenDrawer(false)}>
+      <ul
+      // onClick={() => setOpenDrawer(false)}
+      >
         {menuItems.map((item, index) => {
           return (
             <li key={index}>
