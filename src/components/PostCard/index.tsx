@@ -25,10 +25,11 @@ import { AiOutlineLike, AiOutlineComment } from "react-icons/ai";
 import { BiDotsVerticalRounded } from "react-icons/bi";
 import { TbShare3 } from "react-icons/tb";
 
-const PostCard = () => {
+const PostCard = (props: any) => {
   return (
     <Card
       className="w-full"
+      margin={"auto"}
       marginTop={4}
       maxW="2xl"
       backgroundColor={"color.bg"}

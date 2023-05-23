@@ -33,8 +33,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         bg: "#0e1116",
         // ...
         text: "#A8B3CF",
-        border: "#4d5561",
-        // border: "#a8b3cf33",
+        // border: "#4d5561",
+        border: "#a8b3cf33",
       },
     },
   });
