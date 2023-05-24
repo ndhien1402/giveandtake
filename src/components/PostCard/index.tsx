@@ -1,24 +1,18 @@
 import {
   Avatar,
   Box,
-  Button,
   Card,
   CardBody,
   CardFooter,
   CardHeader,
   Flex,
   Heading,
-  IconButton,
   Text,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
-  MenuGroup,
-  MenuOptionGroup,
-  MenuDivider,
-  Input,
+  useToast,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { AiOutlineLike, AiOutlineComment } from "react-icons/ai";
@@ -26,6 +20,14 @@ import { BiDotsVerticalRounded } from "react-icons/bi";
 import { TbShare3 } from "react-icons/tb";
 
 const PostCard = (props: any) => {
+  const toast = useToast();
+  const handleToast = () => {
+    toast({
+      description: "Tính năng đang phát triển",
+      status: "info",
+      duration: 2000,
+    });
+  };
   return (
     <Card
       className="w-full"
@@ -59,7 +61,10 @@ const PostCard = (props: any) => {
         </Flex>
       </CardHeader>
       <CardBody paddingTop={0} paddingBottom={2}>
-        <Text>With Chakra UI, I w</Text>
+        <Text>
+          🌧 TUYỆT VỜI 🌧 HÀ NỘI TỪ ĐÊM NAY, NGÀY MAI SẼ CÓ MƯA TO, MÁT VÔ CÙNG TỔ
+          QUỐC TA ƠI 🙏⛈
+        </Text>
         <div className="relative w-full h-[350px] mt-2">
           <Image
             className=""
@@ -71,25 +76,34 @@ const PostCard = (props: any) => {
           />
         </div>
         <div className="w-full flex justify-between py-5 pb-2 border-b-[1px] border-[#a8b3cf33]">
-          <span className="flex items-center gap-1">
+          <span className="flex items-center gap-1 cursor-pointer">
             <AiOutlineLike />
             34,8k
           </span>
-          <span>19 bình luận</span>
-          <span>68 chia sẻ</span>
+          <span className="cursor-pointer">19 bình luận</span>
+          <span className="cursor-pointer">68 chia sẻ</span>
         </div>
       </CardBody>
       <CardFooter paddingTop={0}>
         <div className="w-full flex justify-between">
-          <span className="flex items-center gap-1 px-2 text-blue-400">
+          <span
+            className="flex items-center gap-1 px-2 text-blue-400 cursor-pointer"
+            onClick={() => handleToast()}
+          >
             <AiOutlineLike />
             Thích
           </span>
-          <span className="flex items-center gap-1 px-2">
+          <span
+            className="flex items-center gap-1 px-2 cursor-pointer"
+            onClick={() => handleToast()}
+          >
             <AiOutlineComment />
             Bình luận
           </span>
-          <span className="flex items-center gap-1 px-2">
+          <span
+            className="flex items-center gap-1 px-2 cursor-pointer"
+            onClick={() => handleToast()}
+          >
             <TbShare3 />
             Chia sẻ
           </span>
