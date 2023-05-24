@@ -1,8 +1,7 @@
-import { CalendarIcon, AddIcon, AtSignIcon } from "@chakra-ui/icons";
 import { GiRank3, GiReceiveMoney } from "react-icons/gi";
 import { BiNews } from "react-icons/bi";
-import { MdConnectWithoutContact } from "react-icons/md";
 import { FaHandHoldingHeart } from "react-icons/fa";
+import { FcFeedback } from "react-icons/fc";
 
 const menuItems: any[] = [
   {
@@ -18,7 +17,7 @@ const menuItems: any[] = [
   {
     label: "Cho đồ",
     icon: <FaHandHoldingHeart />,
-    path: "/",
+    path: "/giveItem",
   },
   {
     label: "Xếp hạng",
@@ -26,9 +25,9 @@ const menuItems: any[] = [
     path: "/rank",
   },
   {
-    label: "Liên hệ",
-    icon: <MdConnectWithoutContact />,
-    path: "/",
+    label: "Góp ý",
+    icon: <FcFeedback />,
+    path: "/feedback",
   },
 ];
 

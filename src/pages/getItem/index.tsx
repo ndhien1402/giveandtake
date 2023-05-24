@@ -4,7 +4,7 @@ import ItemCard from "components/ItemCard";
 import { Input, InputGroup, InputRightElement } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
-const Rank = () => {
+const GetItem = () => {
   return (
     <div className="mt-16">
       <div className="mb-14">
@@ -28,5 +28,5 @@ const Rank = () => {
     </div>
   );
 };
-export default Rank;
-Rank.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;
+export default GetItem;
+GetItem.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;
