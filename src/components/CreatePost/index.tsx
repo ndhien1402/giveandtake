@@ -32,7 +32,6 @@ const CreatePost = () => {
     <>
       <Card
         className="w-full"
-        marginTop={4}
         maxW="2xl"
         backgroundColor={"color.bg"}
         color={"color.text"}

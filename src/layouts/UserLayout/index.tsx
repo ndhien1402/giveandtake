@@ -43,7 +43,7 @@ const UserLayout = (props: { children: React.ReactNode }) => {
             <SideBar />
           </Box>
         </Box>
-        <Box className="w-full md:px-16">
+        <Box className="w-full md:px-16 mt-8">
           <AnimatePresence mode="wait">
             <motion.div
               key={`${Math.random()}`}

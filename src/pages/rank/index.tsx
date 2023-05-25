@@ -4,7 +4,7 @@ import { Avatar, Box } from "@chakra-ui/react";
 
 const Rank = () => {
   return (
-    <div className="w-full mt-14 flex justify-center">
+    <div className="w-full flex justify-center">
       <Box className="w-full" maxW="2xl">
         {Array.from(Array(10)).map((_, index) => {
           return (
@@ -22,7 +22,7 @@ const Rank = () => {
                 />
                 <span>Nguyen Dinh Hien</span>
               </div>
-              <span className="mr-4 flex items-center">14</span>
+              <span className="mr-4 flex items-center">34</span>
             </Box>
           );
         })}

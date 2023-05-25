@@ -23,6 +23,7 @@ const PostCard = (props: any) => {
   const toast = useToast();
   const handleToast = () => {
     toast({
+      position: "top",
       description: "Tính năng đang phát triển",
       status: "info",
       duration: 2000,
