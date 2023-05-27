@@ -3,6 +3,8 @@ import { BiNews } from "react-icons/bi";
 import { FaHandHoldingHeart } from "react-icons/fa";
 import { FcFeedback } from "react-icons/fc";
 import { CgProfile } from "react-icons/cg";
+import { HiOutlineUsers } from "react-icons/hi";
+import { AiOutlineSetting } from "react-icons/ai";
 
 const menuItems: any[] = [
   {
@@ -37,4 +39,22 @@ const menuItems: any[] = [
   },
 ];
 
-export default menuItems;
+const menuItemsAdmin: any[] = [
+  {
+    label: "Thành viên ",
+    icon: <HiOutlineUsers />,
+    path: "/admin/users",
+  },
+  {
+    label: "Bài viết",
+    icon: <BiNews />,
+    path: "/admin/posts",
+  },
+  {
+    label: "Cài đăt",
+    icon: <AiOutlineSetting />,
+    path: "/admin/setting",
+  },
+];
+
+export { menuItems, menuItemsAdmin };
