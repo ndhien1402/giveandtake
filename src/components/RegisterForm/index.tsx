@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -7,8 +8,23 @@ import {
   Input,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { signUp } from "lib/api/user";
+interface User {}
 
 const RegisterForm = () => {
+  const [data, setData] = useState<User>();
+
+  const onsubmit = () => {
+    signUp(data).then((res) => {
+      console.log(res);
+    });
+  };
+
+  const handleChange = (e: any) => {
+    setData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
   return (
     <>
       <Box className="h-[100vh] flex justify-center items-center">
@@ -19,27 +35,32 @@ const RegisterForm = () => {
           </div>
           <FormControl isInvalid={false}>
             <FormLabel>Số điện thoại*</FormLabel>
-            <Input />
+            <Input type="number" name="phone" onChange={handleChange} />
             <FormHelperText>Vui lòng nhập số điện thoại.</FormHelperText>
           </FormControl>
           <FormControl isInvalid={false}>
             <FormLabel>Email*</FormLabel>
-            <Input />
+            <Input type="email" name="email" onChange={handleChange} />
             <FormHelperText>Vui lòng nhập email.</FormHelperText>
           </FormControl>
           <FormControl isInvalid={false} className="mt-4">
             <FormLabel>Mật khẩu*</FormLabel>
-            <Input />
+            <Input type="password" name="password" onChange={handleChange} />
             <FormHelperText>Vui lòng nhập mật khẩu.</FormHelperText>
           </FormControl>
           <FormControl isInvalid={false} className="mt-4">
             <FormLabel>Nhập lại mật khẩu*</FormLabel>
-            <Input />
+            <Input type="password" name="rePassword" onChange={handleChange} />
             <FormHelperText>Vui lòng nhập lại mật khẩu.</FormHelperText>
           </FormControl>
           <div className="text-center mt-8">
-            <Button isDisabled={false} isLoading={false} colorScheme="blue">
-              Đăng nhập
+            <Button
+              isDisabled={false}
+              isLoading={false}
+              colorScheme="blue"
+              onClick={onsubmit}
+            >
+              Đăng ký
             </Button>
           </div>
           <div className="flex justify-between mt-4">
