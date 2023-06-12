@@ -7,8 +7,29 @@ import {
   Input,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { useState } from "react";
+// import { signIn } from "lib/api/user";
+import { signIn } from "next-auth/react";
+import Cookies from "js-cookie";
+
+interface User {}
 
 const LoginForm = () => {
+  const [data, setData] = useState<User>();
+
+  const handleChange = (e: any) => {
+    setData((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  };
+
+  const onsubmit = async () => {
+    const res = await signIn("credentials", {
+      ...data,
+      redirect: false,
+    });
+  };
+
   return (
     <Box className="h-[100vh] flex justify-center items-center">
       <form className="w-full h-fit max-w-md md:border border-[#4d5561] rounded-lg p-6">
@@ -17,17 +38,22 @@ const LoginForm = () => {
           Tài khoản hoặc mật khẩu không chính xác.
         </div>
         <FormControl isInvalid={false}>
-          <FormLabel>Tài khoản*</FormLabel>
-          <Input />
+          <FormLabel>Số điện thoại*</FormLabel>
+          <Input type="number" name="phone" onChange={handleChange} />
           <FormHelperText>Vui lòng nhập tài khoản.</FormHelperText>
         </FormControl>
         <FormControl isInvalid={false} className="mt-4">
           <FormLabel>Mật khẩu*</FormLabel>
-          <Input />
+          <Input type="password" name="password" onChange={handleChange} />
           <FormHelperText>Vui lòng nhập mật khẩu.</FormHelperText>
         </FormControl>
         <div className="text-center mt-8">
-          <Button isDisabled={false} isLoading={false} colorScheme="blue">
+          <Button
+            isDisabled={false}
+            isLoading={false}
+            colorScheme="blue"
+            onClick={onsubmit}
+          >
             Đăng nhập
           </Button>
         </div>

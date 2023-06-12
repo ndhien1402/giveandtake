@@ -14,17 +14,22 @@ interface User {}
 const RegisterForm = () => {
   const [data, setData] = useState<User>();
 
-  const onsubmit = () => {
-    signUp(data).then((res) => {
-      console.log(res);
-    });
-  };
-
   const handleChange = (e: any) => {
     setData((prev) => {
       return { ...prev, [e.target.name]: e.target.value };
     });
   };
+
+  const onsubmit = () => {
+    signUp(data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  };
+
   return (
     <>
       <Box className="h-[100vh] flex justify-center items-center">
@@ -33,6 +38,11 @@ const RegisterForm = () => {
           <div className="text-center text-red-500 mb-4">
             Số điện thoại đã tồn tại.
           </div>
+          <FormControl isInvalid={false}>
+            <FormLabel>Họ và Tên*</FormLabel>
+            <Input type="text" name="username" onChange={handleChange} />
+            <FormHelperText>Vui lòng nhập họ và tên.</FormHelperText>
+          </FormControl>
           <FormControl isInvalid={false}>
             <FormLabel>Số điện thoại*</FormLabel>
             <Input type="number" name="phone" onChange={handleChange} />

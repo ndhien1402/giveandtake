@@ -3,9 +3,12 @@ import UserLayout from "layouts/UserLayout";
 import PostCard from "components/PostCard";
 import InfiniteScroll from "react-infinite-scroll-component";
 import CreatePost from "components/CreatePost";
+import { useSession } from "next-auth/react";
 
 interface Posts {}
 export default function Home() {
+  // `session` will match the returned value of `callbacks.session()` from `NextAuth()`
+  const { data: session } = useSession();
   const [posts, setPosts] = useState<Posts[]>(Array.from(Array(5)));
 
   const nextPage = () => {

@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import type { NextPage } from "next";
@@ -16,7 +17,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
   Router.events.on("routeChangeStart", NProgress.start);
   Router.events.on("routeChangeError", NProgress.done);
   Router.events.on("routeChangeComplete", NProgress.done);
@@ -41,8 +45,10 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
 
   const getLayout = Component.getLayout ?? ((page: ReactNode) => page);
   return (
-    <ChakraProvider theme={theme}>
-      {getLayout(<Component {...pageProps} />)}
-    </ChakraProvider>
+    <SessionProvider session={session}>
+      <ChakraProvider theme={theme}>
+        {getLayout(<Component {...pageProps} />)}
+      </ChakraProvider>
+    </SessionProvider>
   );
 }

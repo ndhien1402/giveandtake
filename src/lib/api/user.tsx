@@ -10,4 +10,13 @@ const signUp = async (body: any) => {
   }
 };
 
-export { signUp };
+const signIn = async (body: any) => {
+  try {
+    const res = await api.post(restUrl + "/auth/signin", body);
+    return res.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+export { signUp, signIn };
