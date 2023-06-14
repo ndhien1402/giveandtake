@@ -20,10 +20,12 @@ export const authOptions = {
           throw new Error(
             error.response?.data?.message ||
               error.response?.data ||
-              error.response
+              error.response ||
+              error
           );
+          // return error;
         }
-        return user;
+        return null;
       },
     }),
   ],
@@ -32,8 +34,8 @@ export const authOptions = {
       return { ...token, ...user };
     },
     async session({ session, token, user }) {
-      console.log("session", session);
-      return token;
+      session.user = token;
+      return session;
     },
   },
   pages: {

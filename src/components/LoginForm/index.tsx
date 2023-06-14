@@ -7,15 +7,19 @@ import {
   Input,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { useState } from "react";
-// import { signIn } from "lib/api/user";
-import { signIn } from "next-auth/react";
+import { useState, useEffect } from "react";
+import { signIn, useSession } from "next-auth/react";
 import Cookies from "js-cookie";
 
 interface User {}
 
 const LoginForm = () => {
+  const { data: session } = useSession();
   const [data, setData] = useState<User>();
+
+  useEffect(() => {
+    console.log("session", session);
+  }, []);
 
   const handleChange = (e: any) => {
     setData((prev) => {
@@ -28,6 +32,7 @@ const LoginForm = () => {
       ...data,
       redirect: false,
     });
+    // console.log(res);
   };
 
   return (

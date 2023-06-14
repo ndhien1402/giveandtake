@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
 import UserLayout from "layouts/UserLayout";
-
-const Posts = () => {
+import Posts from "components/Admin/Posts";
+const PostsPage = () => {
   return (
-    <>
-      <div className="text-center font-semibold text-2xl">Title</div>
-    </>
+    <div>
+      <div className="text-center font-semibold text-2xl">Quản lý bài viết</div>
+      <div>
+        <Posts />
+      </div>
+    </div>
   );
 };
-export default Posts;
-Posts.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;
+export default PostsPage;
+PostsPage.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;

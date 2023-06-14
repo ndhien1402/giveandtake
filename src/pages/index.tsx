@@ -12,7 +12,7 @@ export default function Home() {
   const [posts, setPosts] = useState<Posts[]>(Array.from(Array(5)));
 
   const nextPage = () => {
-    console.log("nextPage");
+    // console.log("nextPage");
     setPosts((prev) => prev.concat(Array.from(Array(5))));
   };
   return (

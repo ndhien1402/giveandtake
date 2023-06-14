@@ -1,12 +1,16 @@
 import { ReactNode } from "react";
 import UserLayout from "layouts/UserLayout";
+import Users from "components/Admin/Users";
 
-const Users = () => {
+const UsersPage = () => {
   return (
-    <>
-      <div className="text-center font-semibold text-2xl">Title</div>
-    </>
+    <div>
+      <h2 className="text-center text-2xl">Quản lý thành viên</h2>
+      <div className="mt-4">
+        <Users />
+      </div>
+    </div>
   );
 };
-export default Users;
-Users.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;
+export default UsersPage;
+UsersPage.getLayout = (page: ReactNode) => <UserLayout>{page}</UserLayout>;

@@ -14,8 +14,10 @@ const signIn = async (body: any) => {
   try {
     const res = await api.post(restUrl + "/auth/signin", body);
     return res.data;
-  } catch (error) {
-    return error;
+  } catch (error: any) {
+    throw new Error(
+      error.response?.data?.message || error.response?.data || error.response
+    );
   }
 };
 
